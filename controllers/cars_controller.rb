@@ -12,19 +12,19 @@ class App < Sinatra::Base
 
   $cars = [
     {
-      :id => 1
+      :id => 1,
       :make => 'Ferrari',
       :model => '250 SWB',
       :engine => 'V12'
     },
     {
-      :id => 2
+      :id => 2,
       :make => 'Jaguar',
       :model => 'E-Type',
       :engine => 'Straight 6'
     },
     {
-      :id => 3
+      :id => 3,
       :make => 'Lamborghini',
       :model => 'Miura',
       :engine => 'V12'
@@ -34,7 +34,7 @@ class App < Sinatra::Base
   # Index
   get '/cars' do
     @title = "Index Page"
-    @cars = $car
+    @cars = $cars
     erb :'cars/index'
   end
 
@@ -57,10 +57,10 @@ class App < Sinatra::Base
     id = $cars.length + 1
 
   newCar = {
-    :id => id
+    :id => id,
     :make => params[:make],
     :model => params[:model],
-    :engine => param[:engine]
+    :engine => params[:engine]
   }
   $cars.push newCar
 
